@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Portfolio — Armanjot Singh Kaur{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="about-header">
+        <h3>Desarrollador</h3>
+        <h2>About Me</h2>
+        <p>Portfolio de Prácticas — Python & Flask</p>
+    </div>
+
+    <hr class="divider">
+
+    {# Ficha personal #}
+    <div class="info-card">
+        <h3> Expediente</h3>
+        <div class="info-row">
+            <span class="label">Nombre</span>
+            <span class="value">Armanjot Singh Kaur</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Ciclo</span>
+            <span class="value">ASIX II</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Módulo</span>
+            <span class="value">Implantació de Aplicaciones Web</span>
+        </div>
+    </div>
+
+    {# ── EJERCICIOS DE PYTHON ─────────────── #}
+    <h3> Ejercicios de Python</h3>
+    <ul class="project-list">
+
+        <li>
+            <strong>ex1.py — Calculadora de edad futura</strong>
+            <span>
+                Solicita nombre y edad al usuario. Si tiene 50 o más años muestra un mensaje; si no,
+                calcula en qué año cumplirá los 50. Trabaja con
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">input()</code>,
+                conversión de tipos y condicionales
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">if/else</code>.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex2.py — Par o impar</strong>
+            <span>
+                Pide un número entero y determina si es par o impar usando el operador módulo
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">%</code>.
+                Introducción a condicionales y entrada de datos por consola.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex3.py — Filtrar números de una lista</strong>
+            <span>
+                Recorre una lista de 10 números e imprime solo los mayores a 5.
+                Práctica de bucles
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">for</code>
+                combinados con condicionales sobre listas.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex4.py — Intersección de listas</strong>
+            <span>
+                Dadas dos listas, detecta y muestra los elementos que aparecen en ambas usando el operador
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">in</code>
+                dentro de un bucle.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex6.py — Detector de palíndromos</strong>
+            <span>
+                Comprueba si una palabra introducida por el usuario se lee igual al revés usando
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">[::-1]</code>
+                y muestra el resultado con f-strings.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex7.py — Piedra, Papel o Tijeras</strong>
+            <span>
+                Juego interactivo contra la máquina. El ordenador elige aleatoriamente con
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">random.choice()</code>
+                y el resultado se evalúa con condiciones
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">and/or</code>.
+            </span>
+        </li>
+
+        <li>
+            <strong>ex8.py — Gestión de correos con diccionario</strong>
+            <span>
+                Define un diccionario con 10 pares nombre-correo. Ejercicio de introducción a la
+                estructura
+                <code style="color:var(--gold); background:rgba(212,168,75,0.08); padding:1px 5px; border-radius:3px;">dict</code>
+                en Python, base para proyectos como AddMail/GetMail.
+            </span>
+        </li>
+
+    </ul>
+
+    <hr class="divider">
+
+    {# ── PROYECTOS WEB ───────────────────── #}
+    <h3> Aplicaciones Web</h3>
+    <ul class="project-list">
+        <li>
+            <strong>App GetMail / AddMail</strong>
+            <span>
+                Aplicación web de gestión de contactos con conexión directa a MySQL.
+                Permite añadir y consultar registros de nombre y correo electrónico.
+            </span>
+        </li>
+        <li>
+            <strong>CineVault — Proyecto Final</strong>
+            <span>
+                Base de datos cinematográfica con zona pública de catálogo y zona privada de valoraciones.
+                Autenticación con Werkzeug, sesiones Flask, tres formularios y herencia de templates Jinja2.
+            </span>
+        </li>
+    </ul>
+
+    <hr class="divider">
+
+    {# ── TECNOLOGÍAS ─────────────────────── #}
+    <h3> Tecnologías</h3>
+    <div class="tech-pills">
+        {% for tech in ['Python 3', 'Flask', 'MySQL','HTML', 'CSS','XAMPP', 'Git'] %}
+            <span class="tech-pill">{{ tech }}</span>
+        {% endfor %}
+    </div>
+
+    <hr class="divider">
+
+    <div style="text-align: center;">
+        <p style="color: var(--cream-dim); font-size: 0.88em;">
+            Todo el código fuente disponible en GitLab:
+        </p>
+        <a href="https://github.com/armanjotsk/Projecte-Apps-Web-ASK" target="_blank" class="btn-github">
+            Ver Repositorio en Github
+        </a>
+    </div>
+
+</div>
+{% endblock %}

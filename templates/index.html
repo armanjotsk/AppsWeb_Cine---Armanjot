@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Catálogo de Películas{% endblock %}
+
+{% block content %}
+
+    {# ── HERO ─────────────────────────────── #}
+    <section class="hero">
+        <span class="hero-eyebrow">Cinemateca Digital</span>
+        <h1>El cine que<br><em>no se olvida</em></h1>
+        <p class="hero-sub">
+            Explora nuestra selección de grandes obras del séptimo arte.
+            Regístrate para dejar tu valoración.
+        </p>
+    </section>
+
+    {# ── CATÁLOGO EN REJILLA ──────────────── #}
+    <div class="container">
+
+        <div class="catalog-header">
+            <h2>Archivo Fílmico</h2>
+            <span class="catalog-count">{{ peliculas|length }} títulos</span>
+        </div>
+
+        <div class="movie-grid">
+            {% for pelicula in peliculas %}
+            <div class="movie-card">
+
+                {# Franja de color superior #}
+                <div class="movie-card-accent"></div>
+
+                {# Póster real de la película #}
+                <div class="movie-poster">
+                    <img src="{{ url_for('static', filename=pelicula.imagen) }}" alt="{{ pelicula.titulo }}">
+                    <span class="movie-poster-num">{{ loop.index }}</span>
+                </div>
+
+                {# Cuerpo de la tarjeta #}
+                <div class="movie-body">
+                    <h3>{{ pelicula.titulo }}</h3>
+
+                    <div class="movie-tags">
+                        <span class="movie-tag red">{{ pelicula.genero }}</span>
+                    </div>
+
+                    <p>{{ pelicula.sinopsis }}</p>
+
+                    <div class="movie-director">
+                        <strong>Dir.</strong> {{ pelicula.director }}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        {# CTA si no hay sesión #}
+        {% if 'usuario' not in session %}
+        <div class="cta-banner">
+            <p>¿Quieres compartir tu opinión sobre estas películas?</p>
+            <a href="{{ url_for('register') }}">Únete a CineVault</a>
+        </div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

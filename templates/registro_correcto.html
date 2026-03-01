@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Cuenta Creada{% endblock %}
+
+{% block content %}
+<div class="container narrow">
+
+    <span class="success-icon">✅</span>
+    <h3>Todo listo</h3>
+    <h2>¡Bienvenido a CineVault, desarrollado por Armanjot!</h2>
+
+    <div class="form-card" style="text-align: center; margin-top: 24px;">
+        <div class="msg-exito" style="margin-bottom: 0;">
+            Tu cuenta ha sido creada correctamente. Ya puedes iniciar sesión.
+        </div>
+    </div>
+
+    <div class="action-buttons" style="margin-top: 20px;">
+        <a href="{{ url_for('login') }}" style="text-decoration: none; flex: 1;">
+            <button type="button">Iniciar Sesión</button>
+        </a>
+        <a href="{{ url_for('register') }}" style="text-decoration: none; flex: 1;">
+            <button type="button" class="btn-secondary">Otra Cuenta</button>
+        </a>
+    </div>
+
+    <a href="{{ url_for('inicio') }}" class="link-alternativo">
+        Volver al catálogo sin iniciar sesión
+    </a>
+
+</div>
+{% endblock %}

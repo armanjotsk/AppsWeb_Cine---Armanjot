@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Crear Cuenta{% endblock %}
+
+{% block content %}
+<div class="container narrow">
+
+    <h3>Nuevo Usuario</h3>
+    <h2>Crear Cuenta</h2>
+    <p class="form-subtitle">Únete a la comunidad y empieza a valorar películas</p>
+
+    <div class="form-card">
+        {% if error %}
+            <div class="msg-error">{{ error }}</div>
+        {% endif %}
+
+        {# FORMULARIO 1: Registro #}
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Elige un nombre de usuario</label>
+                <input type="text" id="username" name="username"
+                       placeholder="Ej: cinefilo_bcn" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Elige una contraseña</label>
+                <input type="password" id="password" name="password"
+                       placeholder="••••••••" required>
+            </div>
+            <button type="submit">Crear Cuenta</button>
+        </form>
+    </div>
+
+    <a href="{{ url_for('login') }}" class="link-alternativo">
+        ¿Ya tienes cuenta? → Inicia sesión
+    </a>
+
+</div>
+{% endblock %}

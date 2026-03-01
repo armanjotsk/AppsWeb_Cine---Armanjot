@@ -1,0 +1,234 @@
+/* =========================================
+   ESTILOS GENERALES Y ESTRUCTURA BASE
+   ========================================= */
+
+/* Afecta a toda la página visible */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0f19; /* Fondo azul muy oscuro */
+    color: #e2e8f0;            /* Texto gris claro casi blanco */
+    margin: 0;                 /* Elimina margenes */
+}
+
+/* =========================================
+   BARRA DE NAVEGACIÓN SUPERIOR
+   ========================================= */
+
+nav {
+    background-color: #151b2b; /* Azul un poco más claro que el fondo */
+    padding: 15px;             
+    text-align: center;        /* Centra los enlaces */
+    border-bottom: 3px solid #d4a84b; /* Linea dorada inferior */
+}
+
+nav a {
+    color: white;              
+    text-decoration: none;     /* Quita el subrayado */
+    margin: 0 15px;            /* Separación entre enlaces */
+    font-weight: bold;         
+    font-size: 1.1em;          
+}
+
+nav a:hover { 
+    color: #d4a84b;            /* Cambia a color dorado al pasar el raton */
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL Y TEXTOS
+   ========================================= */
+
+.container {
+    max-width: 900px;          /* Ancho máximo de la caja */
+    margin: 40px auto;         /* Centra la caja en la pantalla */
+    padding: 20px;             
+    background-color: #151b2b; /* Fondo azul oscuro */
+    border: 1px solid #2a344a; /* Borde gris/azulado */
+    border-radius: 5px;        
+    box-shadow: 0 0 15px rgba(212, 168, 75, 0.2); /* Sombra dorada suave */
+}
+
+h1, h2, h3 { 
+    color: #d4a84b;            /* Titulos en color dorado */
+    text-align: center;        
+}
+
+/* =========================================
+   FORMULARIOS (INPUTS, TEXTAREAS Y BOTONES)
+   ========================================= */
+
+input, select, textarea {
+    width: 100%;               /* Ocupan todo el ancho */
+    padding: 10px;             
+    margin: 10px 0;            
+    background-color: #0b0f19; /* Fondo más oscuro para que resalte */
+    color: white;              
+    border: 1px solid #2a344a; 
+    box-sizing: border-box;    /* Evita que el padding rompa el ancho */
+}
+
+textarea {
+    min-height: 100px;         /* Altura mnima para la caja de comentarios */
+}
+
+button {
+    width: 100%;               
+    padding: 10px;             
+    background-color: #d4a84b; /* boton dorado */
+    color: black;              /* Texto negro para diferenciar */
+    border: 1px solid #b38835; 
+    cursor: pointer;           
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+button:hover { 
+    background-color: #f2c94c; /* Dorado más brillante al pasar el raton */
+}
+
+/* =========================================
+   MENSAJES DE ESTADO Y ENLACES
+   ========================================= */
+
+.msg-error { 
+    color: #ff4444;            /* Rojo para errores */
+    text-align: center; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+}
+
+.msg-exito { 
+    color: #44ff44;            /* Verde para exito */
+    text-align: center; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+}
+
+.link-alternativo {
+    display: block;            
+    text-align: center;
+    margin-top: 20px;          
+    color: #94a3b8;            /* Gris claro */
+    text-decoration: none;
+}
+
+.link-alternativo:hover {
+    color: #d4a84b;            /* Se vuelve dorado al pasar el ratonn */
+}
+
+/* =========================================
+   TABLA DE DATOS (Sala_Criticas)
+   ========================================= */
+
+table { 
+    width: 100%;               
+    border-collapse: collapse; /* junta los bordes de las celdas */
+    margin-top: 20px;          
+}
+
+th, td { 
+    border: 1px solid #2a344a; /* Borde gris/azulado */
+    padding: 10px;             
+    text-align: left;          
+}
+
+th { 
+    background-color: #0d1321; /* Fondo muy oscuro para la cabecera */
+    color: #d4a84b;            /* Texto dorado */
+}
+
+/* =========================================
+   DISEÑO DEL CATALOGO (TARJETAS DE PELICULAS)
+   ========================================= */
+
+/* Contenedor que agrupa todas las pelIculas usando Flexbox */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;           /* Permite que las cajas bajen de linea si no caben */
+    gap: 20px;                 /* Espacio entre las tarjatras */
+    justify-content: center;   /* centra las tarjetas en la pantalla */
+}
+
+/* Caja individual de cada película */
+.movie-card {
+    background-color: #0b0f19;
+    border: 1px solid #2a344a;
+    width: 250px;              /* Ancho fijo para que todas sean iguales */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.movie-poster img {
+    width: 100%;               /* La imagen ocupa todo el ancho de su caja */
+    border-radius: 5px;
+    border: 2px solid #d4a84b; /* Borde dorado a la foto */
+}
+
+.movie-body p {
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+/* =========================================
+   SISTEMA DE ESTRELLAS (TRUCO CSS)
+   ========================================= */
+/* Encontré esta manera para que los users puedan valorar las pelis con estrellas */
+.star-options {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden de las estrellas */
+    justify-content: center;
+}
+.star-options input { display: none; } /* Oculta el circulito del radio button */
+.star-options label { 
+    font-size: 2em; 
+    color: #2a344a; 
+    cursor: pointer; 
+    margin: 0 5px; 
+}
+/* Al pasar el raton o marcar, pinta la estrella y las anteriores de dorado */
+.star-options input:checked ~ label,
+.star-options label:hover,
+.star-options label:hover ~ label { color: #d4a84b; }
+
+.puntuacion-stars { color: #d4a84b; } /* Estrellas doradas en la tabla */
+
+/* =========================================
+   PORTFOLIO (ABOUT ME)
+   ========================================= */
+
+.project-list { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.project-list li { 
+    background-color: #0b0f19; 
+    margin-bottom: 15px; 
+    padding: 15px; 
+    border: 1px solid #2a344a; 
+    border-radius: 5px;
+}
+
+.tech-pill { 
+    display: inline-block;
+    background-color: #2a344a; 
+    color: white;
+    padding: 5px 10px; 
+    margin: 5px;
+    border-radius: 10px; 
+}
+
+/* Color del enlace inferior */
+.cta-banner a {
+    color: #d4a84b;            /* Le pone tu color dorado */
+    text-decoration: none;     /* Le quita la línea de subrayado (opcional) */
+    font-weight: bold;         /* Lo pone en negrita para que destaque */
+}
+
+.cta-banner a:hover {
+    color: #f2c94c;            /* Se ilumina al pasar el raton */
+}
+
+.btn-github {
+    color: green
+}

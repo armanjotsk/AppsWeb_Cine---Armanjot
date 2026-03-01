@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVault — {% block title %}Catálogo Cinematográfico{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='imagenes/favicon.png') }}">
+</head>
+<body>
+
+    
+    <nav>
+        <a href="{{ url_for('inicio') }}" class="nav-logo">
+            <div class="nav-logo-icon">🎬</div>
+            <span class="nav-logo-text">Cine<span>Vault</span></span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{{ url_for('inicio') }}">Catálogo</a>
+            <a href="{{ url_for('portfolio') }}">About Me</a>
+
+            {% if 'usuario' in session %}
+                <div class="nav-sep"></div>
+                <a href="{{ url_for('sala_criticas') }}">Mis Valoraciones</a>
+                <a href="{{ url_for('add_valoracion') }}" class="nav-cta">+ Valorar</a>
+                <a href="{{ url_for('logout') }}" class="nav-danger">Salir</a>
+            {% else %}
+                <div class="nav-sep"></div>
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+                <a href="{{ url_for('register') }}" class="nav-cta">Registrarse</a>
+            {% endif %}
+        </div>
+    </nav>
+
+       {% block content %}{% endblock %}
+
+</body>
+</html>
